@@ -2,7 +2,7 @@ import { admin } from "..";
 import { NextFunction, Request, Response } from "express";
 
 export const verifyToken = async (
-  req: Request,
+  req: any,
   res: Response,
   next: NextFunction
 ) => {

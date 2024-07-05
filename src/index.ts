@@ -11,7 +11,13 @@ const cron = require("node-cron");
 const PORT = process.env.PORT;
 
 export const admin = require("firebase-admin");
-const serviceAccount = require("../test-auth-app-key.json");
+// const serviceAccount = require("../test-auth-app-key.json");
+
+
+const serviceAccountBase64 = process.env.FIREBASE_SERVICE_ACCOUNT as string;
+const serviceAccountBuffer = Buffer.from(serviceAccountBase64, 'base64');
+const serviceAccount = JSON.parse(serviceAccountBuffer.toString('utf-8'));
+
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
 });

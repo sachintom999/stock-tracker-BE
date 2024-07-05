@@ -23,7 +23,7 @@ export const sendEmailNotification = (
     text: `The current price of ${index} is ${currentPrice} which is ${type} the trigger price of ${triggerPrice}`,
   };
 
-  transporter.sendMail(mailOptions, (error, info) => {
+  transporter.sendMail(mailOptions, (error:any, info:any) => {
     if (error) {
       console.error("Error sending email:", error);
     } else {
