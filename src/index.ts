@@ -6,6 +6,11 @@ import { checkAndSendAlerts } from "./services/alerts";
 
 require("dotenv").config();
 
+const corsOptions = {
+  origin: 'https://market-index-tracker.vercel.app',
+  optionsSuccessStatus: 200 
+};
+
 const app = express();
 const cron = require("node-cron");
 const PORT = process.env.PORT;
@@ -24,7 +29,7 @@ admin.initializeApp({
 
 export const db = getFirestore();
 
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 
 app.use("/auth", authRoutes);
