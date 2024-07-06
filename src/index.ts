@@ -29,7 +29,8 @@ admin.initializeApp({
 
 export const db = getFirestore();
 
-app.use(cors(corsOptions));
+app.use(cors());
+app.options('*', cors());
 app.use(express.json());
 
 app.use("/auth", authRoutes);
