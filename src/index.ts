@@ -8,7 +8,7 @@ require("dotenv").config();
 
 const corsOptions = {
   origin: 'https://market-index-tracker.vercel.app',
-  optionsSuccessStatus: 200 
+  methods: ["GET", "POST", "PUT", "DELETE"],
 };
 
 const app = express();
